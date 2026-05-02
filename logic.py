@@ -133,7 +133,7 @@ class Logic(QMainWindow, Ui_MainWindow):
             writer.writerow(["Voter ID", "Choice"])
             file.close()
 
-        with open("voters.csv", "a", newline="") as file:
+        with open("voters.csv", "a+", newline="") as file:
             writer = csv.writer(file)
 
             for vote_id in self.__get_voter_data():
@@ -146,7 +146,7 @@ class Logic(QMainWindow, Ui_MainWindow):
             writer.writerow(["Candidate", "Votes"])
             file.close()
 
-        with open("candidates.csv", "a", newline="") as file:
+        with open("candidates.csv", "a+", newline="") as file:
             writer = csv.writer(file)
 
             for candidate in self.__get_candidates():
