@@ -120,6 +120,9 @@ class Logic(QMainWindow, Ui_MainWindow):
         self.IDInput.clear()
         self.stackedWidget.setCurrentIndex(self.SETUP_WINDOW_INDEX)
 
+        self.__set_candidates("")
+        self.__set_voter_data({})
+
         for radio in self.VotePage.findChildren(QRadioButton): # delete all candidate radio buttons.
             radio.deleteLater()
 
@@ -135,6 +138,7 @@ class Logic(QMainWindow, Ui_MainWindow):
 
         with open("voters.csv", "a+", newline="") as file:
             writer = csv.writer(file)
+            writer.writerow(["NEW BALLOT", "-----"])
 
             for vote_id in self.__get_voter_data():
                 data = [vote_id, self.__get_voter_data().get(vote_id)]
@@ -148,8 +152,10 @@ class Logic(QMainWindow, Ui_MainWindow):
 
         with open("candidates.csv", "a+", newline="") as file:
             writer = csv.writer(file)
+            writer.writerow(["NEW BALLOT", "-----"])
 
             for candidate in self.__get_candidates():
+                print(candidate)
                 data = [candidate, self.__get_candidates().get(candidate)]
                 writer.writerow(data)
 
@@ -229,6 +235,13 @@ class Logic(QMainWindow, Ui_MainWindow):
         :param new_id: A provided voter ID.
         """
         self.__voter_id = new_id.strip()
+
+    def __set_voter_data(self, new_data : dict[str, str]) -> None:
+        """
+        Sets voter data to new_data
+        :param new_data: A new dictionary.
+        """
+        self.__voter_data = {}
 
     def __get_candidates(self) -> dict[str, int]:
         """
