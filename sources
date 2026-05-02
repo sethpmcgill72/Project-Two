@@ -1,0 +1,10 @@
+Hello.
+No AI was used for this project, nor was any source code or project idea copied from anywhere/anyone
+(excluding the Qt designer tool, I suppose?). That being said, I did use some online resources to find out how to do
+certain things. These sources are listed below. I also found some things out with trial and error, mostly by typing
+self.WidgetName. and looking at the autofill options.
+
+https://www.geeksforgeeks.org/python/pyqt5-how-to-change-color-of-the-label/ - setting color/style of widget text
+https://stackoverflow.com/questions/25164853/how-to-use-findchildren - finding created widgets
+https://python-qt-tutorial.readthedocs.io/en/latest/4.updating_gui.html - dynamically making new widgets
+https://www.pythonguis.com/tutorials/pyqt-signals-slots-events/ - events such as textChanged
